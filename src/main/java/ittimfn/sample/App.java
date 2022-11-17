@@ -1,9 +1,3 @@
-# Map_UpdateKey_Java
-JavaのMapのキーを変更しても機能するか
-
-## ソース
-
-``` App.java
 package ittimfn.sample;
 
 import java.util.HashMap;
@@ -39,43 +33,3 @@ public class App {
         System.out.println(map.get(Model.builder().key(1).tmp(10).build()));
     }
 }
-
-```
-
-``` Model.java
-package ittimfn.sample.model;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-@Data
-@AllArgsConstructor
-@Builder
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Model {
-    
-    @EqualsAndHashCode.Include
-    private int key;
-    
-    private int tmp;
-}
-
-```
-
-## 実行結果
-
-``` txt
-{Model(key=1, tmp=10)=hoge, Model(key=2, tmp=11)=piyo}
-hoge
-{Model(key=3, tmp=10)=hoge, Model(key=4, tmp=11)=piyo}
-null
-null
-```
-
-## 実行
-
-``` bash
-mvn clean compile exec:java
-```
